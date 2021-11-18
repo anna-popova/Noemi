@@ -22,7 +22,7 @@ a {
 	font-family: "Open Sans";
 	font-style: normal;
 	font-weight: normal;
-	src: local("Roboto"),
+	src: 
 	url("../fonts/OpenSans-Regular.woff2") format("woff2"),
 	url("../fonts/OpenSans-Regular.woff") format("woff"),
 	url("../fonts/OpenSans-Regular.ttf") format("truetype");
@@ -31,7 +31,7 @@ a {
 	font-family: "Open Sans";
 	font-style: normal;
 	font-weight: bold;
-	src: local("Roboto"),
+	src: 
 	url("../fonts/OpenSans-Bold.woff2") format("woff2"),
 	url("../fonts/OpenSans-Bold.woff") format("woff"),
 	url("../fonts/OpenSans-Bold.ttf") format("truetype");
@@ -80,7 +80,7 @@ body {
 }
 .header-title {
 	text-align: center;
-	font-weight: bold; /*?не могу разобраться, почему шрифт не становится жирным*/
+	font-weight: bold;
 	text-transform: uppercase;
 	color: #ffffff;
 }
@@ -250,12 +250,12 @@ body {
 /* !стили для блока Тренды */
 .trends {
 	max-width: 1660px;
-	margin: 25px auto 0 auto;
+	margin: 60px auto 0 auto;
 }
 .section-title {
 	font-size: 20px;
-	font-weight: bold; /*?опять не переключается на жирный шрифт*/
 	color: #0f0d0e;
+	font-weight: bold;
 	text-transform: uppercase;
 	text-align: center;
 }
@@ -264,25 +264,25 @@ body {
 	display: block;
 	width: 65px;
 	height: 3px;
-	margin: 15px auto 25px auto;
-	background-color: rgba(181, 159, 91, 0.4);
+	margin: 15px auto 30px auto;
+	background-color: #b59f5b;
+	opacity: 0.4;
 }
 .trends-wrp {
-	margin-top: 45px;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
 }
 .trends-item-wrp {
-	flex: 0 0 calc(25% - 3px);
-	margin-bottom: 5px;
-	padding: 10% 20px 20px 20px;
+	display: flex;
+	align-items: flex-end;
+	width: calc(25% - 4px);
+	flex-grow: 1;
+	padding: 9% 20px 20px; /*9% - чтобы при уменьшее экрана от 1660 к 1200, padding-top уменьшался*/
+	margin-right: 4px;
+	margin-bottom: 4px;
 	background-color: #1c2141;
 	position: relative;
 	z-index: 0;
-	
-	display: flex;
-	align-items: flex-end;
 }
 .trends-item-wrp::before {
 	content: "";
@@ -294,6 +294,10 @@ body {
 	position: absolute;
 	opacity: 0.6;
 	z-index: -1;
+}
+.trends-item-wrp:last-child {
+	width: 25%;
+	margin-right: 0;
 }
 .trends-item-wrp-garden {
 	background: url("../img/trend-garden.jpg") no-repeat center center;
@@ -312,19 +316,17 @@ body {
 	background-size: cover;
 }
 .trends-item {
-	flex-grow: 1;
-	padding: 10%;
+	width: 100%;
+	padding: 40px 40px 35px 25px;
 	border: solid 3px rgba(181, 159, 91, 0.6);
 }
 .tags {
 	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 15px;
 }
 .tags-item {
 	margin-right: 20px;
-	margin-bottom: 15px;
-}
-.tags-item:last-child {
-	margin-right: 0px;
 }
 .tags-item-link {
 	font-size: 14px;
@@ -332,74 +334,94 @@ body {
 	font-weight: bold;
 	text-transform: uppercase;
 }
-.tags-item-link:hover, 
+.tags-item-link:hover,
 .tags-item-link:focus {
-	border: none;
 	outline: 1px solid #b59f5b;
 	outline-offset: 3px;
 }
+.trends-title {
+	line-height: 1.2;
+}
 .trends-title-link {
 	font-size: 20px;
-	line-height: 1.2;
 	color: #ffffff;
 	font-weight: bold;
 	text-transform: uppercase;
 }
-.trends-title-link:hover, 
+.trends-title-link:hover,
 .trends-title-link:focus {
-	outline: none;
 	color: #b59f5b;
 }
 
-@media screen and (min-width: 641px) and (max-width: 1199px) and (orientation: landscape ) {
+@media screen and (min-width: 641px) and (max-width: 1199px) {
 	.trends {
 		margin-top: 50px;
 	}
-	.trends-item-wrp {
-		flex: 0 0 calc(25% - 3px);
+	.section-title {
+		font-size: 18px;
+	}
+	.section-title::after {
+		margin: 15px auto 20px auto;
+	}
+	.trends-item {
+		padding: 35px 60px 35px 30px;
 	}
 	.trends-title-link {
 		font-size: 17px;
 	}
 }
 @media screen and (min-width: 641px) and (max-width: 1199px) and (orientation: portrait) {
-	.trends {
-		margin-top: 50px;
-	}
 	.trends-item-wrp {
-		flex: 0 0 calc(50% - 3px);
-		margin-bottom: 5px;
+		width: calc(50% - 4px);
 	}
-	.trends-title-link {
-		font-size: 17px;
+	.trends-item-wrp:last-child {
+		width: 50%;
+	}
+	.trends-item-wrp:nth-child(even) {
+		margin-right: 0;
+	}
+}
+@media screen and (min-width: 641px) and (max-width: 1199px) and (orientation: landscape) {
+	.trends-item-wrp {
+		width: calc(25% - 4px);
+		margin-right: 4px;
+	}
+	.trends-item-wrp:last-child {
+		width: 25%;
+		margin-right: 0;
 	}
 }
 
-@media screen and (max-width: 640px) and (orientation: landscape) {
+@media screen and (max-width: 640px) {
 	.trends {
 		margin-top: 45px;
 	}
-	.trends-item-wrp {
-		flex: 0 0 calc(50% - 3px);
-		margin-bottom: 5px;
-	}
-	.trends-title-link {
+	.section-title {
 		font-size: 16px;
+	}
+	.section-title::after {
+		margin: 12px auto 25px auto;
+	}
+	.trends-item {
+		padding: 30px 30px 30px 20px;
 	}
 }
 @media screen and (max-width: 640px) and (orientation: portrait) {
-	.trends {
-		margin-top: 45px;
-	}
 	.trends-item-wrp {
-		flex: 0 0 100%;
-		margin-bottom: 5px;
+		width: 100%;
+		margin-right: 0;
+		margin-bottom: 3px;
+	}
+}
+@media screen and (max-width: 640px) and (orientation: landscape) {
+	.trends-item-wrp {
+		width: calc(50% - 4px);
 	}
 	.trends-item-wrp:last-child {
-		margin-bottom: 0;
+		width: 50%;
 	}
-	.trends-title-link {
-		font-size: 16px;
+	.trends-item-wrp:nth-child(even) {
+		margin-right: 0;
 	}
 }
 
@@ -429,10 +451,6 @@ body {
 	width: 22vw; /*иначе реализовать сжимание изо не смогла. если ставлю здесь 100%, то 
 	изо сразу становится меньше заявленных в макете 380px */
 }
-.tags {
-	display: flex;
-	flex-wrap: wrap;
-}
 .tags .list-item {
 	margin-right: 20px;
 	margin-bottom: 7px;
@@ -456,7 +474,7 @@ body {
 	color: #7a6b3e;
 }
 .date-and-autor {
-	margin-bottom: 10%;
+	margin-bottom: 60px;
 }
 .date {
 	font-size: 12px;
@@ -541,6 +559,7 @@ body {
 	flex-grow: 1;
 }
 .input-search {
+	display: block;
 	width: 100%;
 	height: 48px;
 	padding-left: 16px;
@@ -683,6 +702,10 @@ body {
 	.article-img {
 		width: 100%;
 	}
+	.date-and-autor {
+		margin-bottom: 40px;
+	}
+
 }
 
 @media screen and (max-width: 640px) {
