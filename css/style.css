@@ -370,7 +370,7 @@ body {
 		font-size: 17px;
 	}
 }
-@media screen and (min-width: 641px) and (max-width: 1199px) and (orientation: portrait) {
+@media screen and (min-width: 641px) and (max-width: 1199px) /*and (orientation: portrait)*/ {
 	.trends-item-wrp {
 		width: calc(50% - 4px);
 	}
@@ -381,7 +381,7 @@ body {
 		margin-right: 0;
 	}
 }
-@media screen and (min-width: 641px) and (max-width: 1199px) and (orientation: landscape) {
+/*@media screen and (min-width: 641px) and (max-width: 1199px) and (orientation: landscape) {
 	.trends-item-wrp {
 		width: calc(25% - 4px);
 		margin-right: 4px;
@@ -390,7 +390,7 @@ body {
 		width: 25%;
 		margin-right: 0;
 	}
-}
+}*/
 
 @media screen and (max-width: 640px) {
 	.trends {
@@ -405,15 +405,18 @@ body {
 	.trends-item {
 		padding: 30px 30px 30px 20px;
 	}
+	.trends-title-link {
+		font-size: 17px;
+	}
 }
-@media screen and (max-width: 640px) and (orientation: portrait) {
+@media screen and (max-width: 640px) /*and (orientation: portrait)*/ {
 	.trends-item-wrp {
 		width: 100%;
 		margin-right: 0;
 		margin-bottom: 3px;
 	}
 }
-@media screen and (max-width: 640px) and (orientation: landscape) {
+/*@media screen and (max-width: 640px) and (orientation: landscape) {
 	.trends-item-wrp {
 		width: calc(50% - 4px);
 	}
@@ -423,7 +426,7 @@ body {
 	.trends-item-wrp:nth-child(even) {
 		margin-right: 0;
 	}
-}
+}*/
 
 /* !стили для общего container, содержащего main и aside */
 .container.main-aside {
