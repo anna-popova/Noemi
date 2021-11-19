@@ -39,10 +39,11 @@ a {
 body {
 	font-family: "Open Sans", "Arial", sans-serif;
 }
-/* !стили для pop-up */
 
 /* !стили для header */
 .page-header {
+	padding: 30px 0 125px;
+	background-image: url("../img/banner-bg.jpg");
 	background-color: #1c2141;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -62,6 +63,10 @@ body {
 	z-index: -1;
 }
 .container {
+	width: 85%;
+	max-width: 1200px;
+	padding-left: 1%;
+	padding-right: 1%;
 	margin: 0 auto;
 }
 .header-top-block {
@@ -78,63 +83,48 @@ body {
 	outline: 1px solid #b59f5b;
 	outline-offset: 10px;
 }
+.logo-img {
+	width: 180px;
+}
+.nav-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+.nav-list .list-item {
+	margin-right: 35px;
+}
+.nav-list .list-item:last-child {
+	margin-right: 0;
+}
+.item-link {
+	font-size: 13px;
+	font-weight: normal;
+	text-transform: uppercase;
+	color: #ffffff;
+}
+.item-link:hover, 
+.item-link:focus {
+	outline: none;
+	color: #b59f5b;
+	
+}
+.menu-burger {
+	display: none;
+}
+.logo-mobile {
+	display: none;
+}
 .header-title {
+	width: 690px; 
+	margin: 100px auto 0 auto;
+	font-size: 45px;
+	line-height: 1.66;
 	text-align: center;
 	font-weight: bold;
 	text-transform: uppercase;
 	color: #ffffff;
-}
-
-@media screen and (min-width: 1200px) {
-	.page-header {
-		padding: 30px 0 125px;
-		background-image: url("../img/banner-bg.jpg");
-	}
-	.container {
-		width: 72.3%;
-		max-width: 1200px;
-		padding-left: 1%;
-		padding-right: 1%;
-	}
-	.logo-img {
-		width: 180px;
-	}
-	.nav-list {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		align-items: center;
-	}
-	.nav-list .list-item {
-		margin-right: 35px;
-	}
-	.nav-list .list-item:last-child {
-		margin-right: 0;
-	}
-	.item-link {
-		font-size: 13px;
-		font-weight: normal;
-		text-transform: uppercase;
-		color: #ffffff;
-	}
-	.item-link:hover, 
-	.item-link:focus {
-		outline: none;
-		color: #b59f5b;
-		
-	}
-	.menu-burger {
-		display: none;
-	}
-	.logo-mobile {
-		display: none;
-	}
-	.header-title {
-		width: 690px; 
-		margin: 100px auto 0 auto;
-		font-size: 45px;
-		line-height: 1.66;
-	}
 }
 
 /*бургерное меню сразу для Tablet и Mobile*/
@@ -191,6 +181,8 @@ body {
 	}
 	.container {
 		width: 91%;
+		padding-left: 0;
+		padding-right: 0;
 	}
 	.logo-img {
 		width: 160px;
@@ -218,6 +210,8 @@ body {
 	}
 	.container {
 		width: 91%;
+		padding-left: 0;
+		padding-right: 0;
 	}
 	.header-top-block {
 		justify-content: flex-end;
@@ -247,6 +241,139 @@ body {
 		line-height: 1.38;
 	}
 }
+
+/* !стили для pop-up */
+.pop-up {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color:rgba(0, 0, 0, 0.7);
+	z-index: 9999;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.pop-up-container {
+	position: relative; /*для крестика*/
+	width: 30%;
+	max-width: 700px;
+	padding: 30px 20px;
+	background-color: white;
+}
+.feedback {
+	font-size: 12px;
+}
+.form-row {
+	margin-bottom: 20px;
+}
+.question-select {
+	display: inline-block;
+	width: 100%;
+	margin-top: 10px;
+	padding: 13px 10px;
+	font-size: inherit;
+	color: grey;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	border: none;
+	background: #f3f2f2 url(../svg/form-arrows.svg) no-repeat right 10px center;
+	background-size: 8px;
+}
+.question-select:focus,
+.question-select:hover {
+	outline: 1px solid #b59f5b;
+	outline-offset: -1px;
+}
+.form-hint {
+	display: block;
+	margin-bottom: 10px;
+}
+.radio-group {
+	display: inline-block;
+}
+.radio-group:nth-of-type(n+2) {
+	margin-left: 5px;
+}
+.radio-group-text::before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	width: 15px;
+	height: 15px;
+	margin-right: 3px;
+	background: url("../svg/form-empty-circle.svg") no-repeat center center;
+	background-size: 100%;
+}
+.radio {
+	position: absolute;
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	width: 1px;
+}
+.radio:checked ~ .radio-group-text::before {
+	background-image: url("../svg/form-circle.svg");
+}
+.form-textarea {
+	width: 100%;
+	min-height: 100px;
+	padding: 10px;
+	margin-top: 10px;
+	font: inherit;
+	color: grey;
+	background-color: #f3f2f2;
+	border: none;
+}
+.form-textarea:hover,
+.form-textarea:focus {
+	outline: 1px solid #b59f5b;
+	outline-offset: -1px;
+}
+.send-button {
+	width: 100%;
+	padding: 15px;
+	font-size: inherit;
+	font-weight: bold;
+	color: white;
+	text-transform: uppercase;
+	background-color: #b59f5b;
+	border: none;
+}
+.send-button:focus,
+.send-button:hover {
+	outline: 2px solid #b59f5b;
+	outline-offset: 4px;
+	color: black;
+}
+.popup-close {
+	position: absolute;
+	top: -20px;
+	right: 0;
+	width: 15px;
+	height: 15px;
+	background-color: transparent;
+	border: none;
+}
+
+@media screen and (min-width: 641px) and (max-width: 1199px) {
+	.pop-up-container {
+		width: 50%;
+	}
+	.form-textarea {
+		min-height: 50px;
+	}
+}
+@media screen and (max-width: 640px) {
+	.pop-up-container {
+		width: 90%;
+	}
+	.form-textarea {
+		min-height: 0px;
+	}
+}
+
 /* !стили для блока Тренды */
 .trends {
 	max-width: 1660px;
@@ -323,7 +450,7 @@ body {
 .tags {
 	display: flex;
 	flex-wrap: wrap;
-	margin-bottom: 15px;
+	margin-bottom: 5px;
 }
 .tags-item {
 	margin-right: 20px;
@@ -351,6 +478,7 @@ body {
 .trends-title-link:hover,
 .trends-title-link:focus {
 	color: #b59f5b;
+	outline: none;
 }
 
 @media screen and (min-width: 641px) and (max-width: 1199px) {
@@ -370,27 +498,17 @@ body {
 		font-size: 17px;
 	}
 }
-@media screen and (min-width: 641px) and (max-width: 1199px) /*and (orientation: portrait)*/ {
+@media screen and (min-width: 641px) and (max-width: 1199px) {
 	.trends-item-wrp {
 		width: calc(50% - 4px);
 	}
 	.trends-item-wrp:last-child {
-		width: 50%;
+		width: calc(50% - 4px);
 	}
 	.trends-item-wrp:nth-child(even) {
 		margin-right: 0;
 	}
 }
-/*@media screen and (min-width: 641px) and (max-width: 1199px) and (orientation: landscape) {
-	.trends-item-wrp {
-		width: calc(25% - 4px);
-		margin-right: 4px;
-	}
-	.trends-item-wrp:last-child {
-		width: 25%;
-		margin-right: 0;
-	}
-}*/
 
 @media screen and (max-width: 640px) {
 	.trends {
@@ -409,24 +527,13 @@ body {
 		font-size: 17px;
 	}
 }
-@media screen and (max-width: 640px) /*and (orientation: portrait)*/ {
+@media screen and (max-width: 640px) {
 	.trends-item-wrp {
 		width: 100%;
 		margin-right: 0;
 		margin-bottom: 3px;
 	}
 }
-/*@media screen and (max-width: 640px) and (orientation: landscape) {
-	.trends-item-wrp {
-		width: calc(50% - 4px);
-	}
-	.trends-item-wrp:last-child {
-		width: 50%;
-	}
-	.trends-item-wrp:nth-child(even) {
-		margin-right: 0;
-	}
-}*/
 
 /* !стили для общего container, содержащего main и aside */
 .container.main-aside {
@@ -439,8 +546,7 @@ body {
 	flex-grow: 1; 
 	margin-right: 125px;
 }
-.article-main { /*плохо этот блок выглядит на экране от 1200 до 1400. текст вылазиет ниже, чем
-	картинка. это нормально или как исправить???*/
+.article-main {
 	display: flex;
 	margin-bottom: 55px;
 }
@@ -451,7 +557,7 @@ body {
 	margin-right: 25px;
 }
 .article-img {
-	width: 22vw; /*иначе реализовать сжимание изо не смогла. если ставлю здесь 100%, то 
+	width: 23vw; /*иначе реализовать сжимание изо не смогла. если ставлю здесь 100%, то 
 	изо сразу становится меньше заявленных в макете 380px */
 }
 .tags .list-item {
@@ -462,11 +568,11 @@ body {
 	margin-right: 0;
 }
 .article-main-title {
-	margin-bottom: 24px;
+	margin-bottom: 15px;
+	line-height: 1.2;
 }
 .article-main-title-link {
 	font-size: 20px;
-	line-height: 1.2;
 	color: #0f0d0e;
 	font-weight: bold;
 	text-transform: uppercase;
@@ -477,7 +583,7 @@ body {
 	color: #7a6b3e;
 }
 .date-and-autor {
-	margin-bottom: 60px;
+	margin-bottom: 35px;
 }
 .date {
 	font-size: 12px;
@@ -573,6 +679,7 @@ body {
 .input-search:hover,
 .input-search:focus {
 	outline: 2px solid #b59f5b;
+	outline-offset: -2px;
 }
 .button-search {
 	width: 48px;
@@ -584,6 +691,7 @@ body {
 .button-search:hover,
 .button-search:focus {
 	outline: 2px solid #b59f5b;
+	outline-offset: -2px;
 	background-color: black;
 }
 
@@ -604,6 +712,7 @@ body {
 .input-mailing:hover,
 .input-mailing:focus {
 	outline: 2px solid #b59f5b;
+	outline-offset: -2px;
 }
 .button-mailing {
 	width: 100%;
@@ -618,6 +727,7 @@ body {
 .button-mailing:hover,
 .button-mailing:focus {
 	outline: 2px solid #b59f5b;
+	outline-offset: -2px;
 	background-color: black;
 }
 
@@ -708,7 +818,6 @@ body {
 	.date-and-autor {
 		margin-bottom: 40px;
 	}
-
 }
 
 @media screen and (max-width: 640px) {
@@ -761,3 +870,206 @@ body {
 	}
 }
 
+/* !стили для блока Наши изделия */
+.product {
+	margin-top: 65px;
+}
+.products-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.product-wrp {
+	width: calc(33.333% - 43.33px);
+	display: flex;
+	flex-direction: column;
+}
+.product-img-wrp {
+	width: 87%;
+	margin: 0 auto;
+}
+.product-img {
+	width: 100%;
+}
+.product-text {
+	flex-grow: 1;
+	padding: 40px 20px 25px 20px;
+	margin-top: -30px;
+	border: 3px solid rgba(181, 159, 91, 0.7);
+}
+.section-title-product {
+	text-align: left;
+	margin-bottom: 5px;
+}
+.section-title-product::after {
+	display: none;
+}
+.product-text-block {
+	margin-bottom: 20px;
+}
+.product-info {
+	font-size: 15px;
+	line-height: 1.46;
+	color: #0f0d0e;
+	font-weight: normal;
+}
+.product-info-link {
+	color: #b59f5b;
+}
+.product-info-link:hover,
+.product-info-link:focus {
+	outline: none;
+	text-decoration: underline;
+}
+.product-price {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.price-wrp {
+	display: flex;
+	flex-direction: column;
+}
+.price {
+	font-size: 20px;
+	line-height: 1.2;
+	font-weight: bold;
+}
+.price-out {
+	font-size: 14px;
+	text-decoration: line-through;
+}
+.btn-link {
+	display: inline-block;
+	padding: 20px 30px;
+	font-size: 14px;
+	font-weight: bold;
+	color: white;
+	text-transform: uppercase;
+	background-color: #b59f5b;
+}
+.btn-link:hover,
+.btn-link:focus {
+	outline: 2px solid #b59f5b;
+	background-color: black;
+}
+
+@media screen and (min-width: 1200px) {
+	.product-img-wrp {
+		max-width: 300px; /*только для desctop, чтобы на других девайсах красиво резинилось*/
+	}
+}
+
+@media screen and (min-width: 641px) and (max-width: 1199px) {
+	.product {
+		margin-top: 50px;
+	}
+	.product-wrp {
+		width: calc(50% - 13.5px);
+		margin-bottom: 25px;
+	}
+	.product-text {
+		padding-top: 55px;
+		margin-top: -45px;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.product {
+		margin-top: 40px;
+	}
+	.product-wrp {
+		width: 100%;
+		margin-bottom: 25px;
+	}
+	.product-wrp:last-child {
+		margin-bottom: 0;
+	}
+	.section-title-product {
+		font-size: 17px;
+	}
+}
+
+/* !стили для footer */
+.page-footer {
+	margin-top: 65px;
+}
+.footer-container {
+	background-color: #f3f2f2;
+	padding-top: 28px;
+	padding-bottom: 28px;
+}
+.social-icons-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 0 auto;
+}
+.social-icons-list-item {
+	margin-right: 30px;
+}
+.social-icons-link {
+	display: block;
+	width: 20px;
+	height: 20px;
+}
+.social-icons-link:hover,
+.social-icons-link:focus {
+	outline: 1px solid #b59f5b;
+	outline-offset: 5px;
+}
+.social-icons-link-twitter {
+	background: url("../svg/twitter.svg") no-repeat center;
+	width: 25px;
+	height: 25px;
+	background-size: 100%;
+}
+.social-icons-link-pinterest {
+	background: url("../svg/pinterest.svg") no-repeat center;
+	background-size: 100%;
+}
+.social-icons-link-facebook {
+	background: url("../svg/facebook.svg") no-repeat center;
+	background-size: 100%;
+}
+.social-icons-link-instagram {
+	background: url("../svg/instagram.svg") no-repeat center;
+	background-size: 100%;
+}
+.social-icons-link-tumblr {
+	background: url("../svg/tumblr.svg") no-repeat center;
+	background-size: 100%;
+}
+.copyright-container {
+	display: flex;
+	margin: 70px auto 45px auto;
+	justify-content: center;
+}
+.copyright-link {
+	font-size: 12px;
+	font-weight: bold;
+	color: #bebebe;
+}
+.copyright-link:hover,
+.copyright-link:focus {
+	outline: none;
+	color: black;
+}
+
+@media screen and (min-width: 641px) and (max-width: 1199px) {
+	.page-footer {
+		margin-top: 50px;
+	}
+	.copyright-container {
+		margin-top: 50px;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.page-footer {
+		margin-top: 40px;
+	}
+	.copyright-container {
+		margin-top: 50px;
+	}
+}
