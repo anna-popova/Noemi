@@ -4,7 +4,7 @@
 
 Выполнена адаптивно-резиновая верстка главной страницы сайта для мобильного, планшетного и десктопного представления.
 
-Пройти по ссылке: https://anna-popova.github.io/Noemi-progect/
+Пройти по ссылке: https://anna-popova.github.io/Noemi/
 
 <img width="947" alt="Noemi" src="https://user-images.githubusercontent.com/61383401/153172734-64b4d3e2-0b3a-48c4-8be3-7f52c8f706b0.png">
 
